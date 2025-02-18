@@ -13,6 +13,23 @@ class PostModel {
     required this.updated,
   });
 
+  //create a copyWith method to update the model
+  PostModel copyWith({
+    String? uuid,
+    String? title,
+    String? content,
+    String? created,
+    String? updated,
+  }) {
+    return PostModel(
+      uuid: uuid ?? this.uuid,
+      title: title ?? this.title,
+      content: content ?? this.content,
+      created: created ?? this.created,
+      updated: updated ?? this.updated,
+    );
+  }
+
   // Add a factory constructor to deserialize the model
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
